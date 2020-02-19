@@ -49,9 +49,9 @@ In this part, we will ask you to come in for demo and code review.
 - Please don't hesitate email us if you have any questions.
 Your solution will be evaluated using the following criteria
 
-● Following the requirements
-● UI and user experience quality
-● Code quality (organization, best practices, idiomatic code, design)
+- Following the requirements
+- UI and user experience quality
+- Code quality (organization, best practices, idiomatic code, design)
 
 
 # Good luck !!!
