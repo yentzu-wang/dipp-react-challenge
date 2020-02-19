@@ -47,11 +47,10 @@ In this part, we will ask you to come in for demo and code review.
 - There is no **right** or **wrong** answer. We are interested in how you approach problem solving.
 - A particular attention will be given to how you structure your code and how you create the components.
 - Please don't hesitate email us if you have any questions.
-Your solution will be evaluated using the following criteria
 
+Your solution will be evaluated using the following criteria
 - Following the requirements
 - UI and user experience quality
 - Code quality (organization, best practices, idiomatic code, design)
-
 
 # Good luck !!!
