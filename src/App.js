@@ -4,8 +4,8 @@ import { InMemoryCache } from "apollo-cache-inmemory"
 import { RestLink } from "apollo-link-rest"
 import { ApolloProvider } from "react-apollo"
 
+import "./css/style.min.css"
 import logo from "./logo.svg"
-import "./App.css"
 import uri from "./uri"
 import Weather from "./Weather"
 
