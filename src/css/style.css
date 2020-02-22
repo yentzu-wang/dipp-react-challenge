@@ -103,6 +103,86 @@ body {
     color: #ffb900;
     text-align: right; }
 
+.login {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  .login__video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -1; }
+    .login__video video {
+      height: 100%;
+      width: 100%;
+      object-fit: cover; }
+  .login__btn {
+    display: inline-block;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 1.6rem;
+    padding: 1.5rem 4rem;
+    border-radius: 10rem;
+    cursor: pointer;
+    outline: none !important;
+    border: none;
+    user-select: none;
+    transition: all 0.2s;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.4); }
+    .login__btn:hover {
+      transform: translateY(-5px);
+      transition: all 0.2s; }
+    .login__btn:active {
+      transform: translateY(-1px);
+      box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3); }
+
+.login-modal {
+  width: 100%;
+  height: 210px;
+  background-color: #fff;
+  color: #333;
+  border-radius: 5px;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.6rem; }
+  .login-modal__description {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 10px; }
+  .login-modal__form {
+    margin: 10px;
+    width: 70%; }
+    .login-modal__form .input-group-text,
+    .login-modal__form input {
+      font-size: 1.6rem; }
+    .login-modal__form .input-group {
+      margin-bottom: 5px; }
+  .login-modal__login-btn {
+    background-image: linear-gradient(-90deg, blue, teal 100%);
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    font-size: 1.6rem;
+    cursor: pointer;
+    user-select: none;
+    outline: none !important;
+    height: 35px;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.45); }
+  .login-modal__close-btn {
+    position: absolute;
+    top: 10px;
+    right: 17px;
+    cursor: pointer;
+    user-select: none; }
+
 .navigation {
   display: flex;
   align-items: center;
@@ -117,16 +197,22 @@ body {
   transition: all 0.75s;
   z-index: 9999;
   color: #fff; }
-  .navigation:hover {
-    background-color: rgba(86, 67, 250, 0.85);
-    transition: all 0.75s; }
   .navigation__link {
     color: inherit;
-    text-decoration: inherit; }
+    text-decoration: none !important;
+    transition: all .2s; }
     .navigation__link--active {
       background-image: linear-gradient(to right, #ffb900, #ff7730);
       background-clip: text;
       color: transparent; }
+    .navigation__link::hover {
+      color: #ffb900;
+      transition: all .2s; }
+  .navigation a:hover {
+    color: #7ed56f;
+    transition: all .2s; }
+  .navigation ul {
+    margin-bottom: 0; }
   .navigation li {
     display: inline;
     margin: 0 1rem; }
