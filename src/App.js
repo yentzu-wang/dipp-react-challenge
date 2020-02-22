@@ -1,13 +1,15 @@
 import React from "react"
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom"
 import { ApolloClient } from "apollo-client"
 import { InMemoryCache } from "apollo-cache-inmemory"
 import { RestLink } from "apollo-link-rest"
 import { ApolloProvider } from "react-apollo"
+import uri from "./uri"
+import Home from "./components/home"
+import Weather from "./components/weather"
+import ImageAd from "./components/image-ad"
 
 import "./css/style.min.css"
-import logo from "./logo.svg"
-import uri from "./uri"
-import Weather from "./Weather"
 
 const restLink = new RestLink({ uri })
 
@@ -19,23 +21,35 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      <Weather />
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <Router>
+        <div>
+          <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/weather">Weather</Link>
+            </li>
+            <li>
+              <Link to="/image-ad">Image Ad</Link>
+            </li>
+          </ul>
+
+          <hr />
+
+          <Switch>
+            <Route exact path="/">
+              <Home />
+            </Route>
+            <Route path="/weather">
+              <Weather />
+            </Route>
+            <Route path="/image-ad">
+              <ImageAd />
+            </Route>
+          </Switch>
+        </div>
+      </Router>
     </ApolloProvider>
   )
 }
