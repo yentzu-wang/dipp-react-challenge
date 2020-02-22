@@ -3,18 +3,17 @@
     {
       "id": "admin",
       "account": "admin",
-      "isAdmin": true,
-      "city": null
+      "city": "taipei,tw"
     },
     {
       "id": "user1",
       "account": "user1",
-      "city": "tokyo,jp"
+      "city": "taipei,tw"
     },
     {
       "id": "user2",
       "account": "user2",
-      "city": null
+      "city": "taipei,tw"
     }
   ],
   "cities": [

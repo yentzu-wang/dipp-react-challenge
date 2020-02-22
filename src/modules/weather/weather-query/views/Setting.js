@@ -18,7 +18,8 @@ const Setting = () => {
   const { data: usersData } = useQuery(Setting.query.users, {
     variables: {
       account: user
-    }
+    },
+    fetchPolicy: "cache-and-network"
   })
   const [updateUserCity] = useMutation(Setting.mutation.UpdateUserCity, {
     refetchQueries: [
@@ -30,9 +31,6 @@ const Setting = () => {
       }
     ]
   })
-
-  // console.log(data)
-  console.log(usersData?.user?.city)
 
   return (
     <Card>
