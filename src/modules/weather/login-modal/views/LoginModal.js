@@ -25,6 +25,18 @@ const LoginModal = ({ setShow }) => {
     }
   })
 
+  const onLogin = () => {
+    try {
+      login({
+        variables: {
+          account: user.value
+        }
+      })
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
   return (
     <>
       <GeneralAlert alerts={alerts} />
@@ -34,22 +46,19 @@ const LoginModal = ({ setShow }) => {
           Use admin/user1/user2 to login
         </div>
         <div className="login-modal__form">
-          <FormInput {...user} placeholder="Enter your account" account />
-          <FormInput {...password} placeholder="Enter your password" password />
-          <button
-            className="login-modal__login-btn"
-            onClick={() => {
-              try {
-                login({
-                  variables: {
-                    account: user.value
-                  }
-                })
-              } catch (err) {
-                console.log(err)
-              }
-            }}
-          >
+          <FormInput
+            {...user}
+            placeholder="Enter your account"
+            account
+            login={onLogin}
+          />
+          <FormInput
+            {...password}
+            placeholder="Enter your password"
+            password
+            login={onLogin}
+          />
+          <button className="login-modal__login-btn" onClick={onLogin}>
             Login
           </button>
         </div>

@@ -3,7 +3,7 @@ import { Input, InputGroupAddon, InputGroupText, InputGroup } from "reactstrap"
 import classnames from "classnames"
 import PropTypes from "prop-types"
 
-const FormInput = ({ placeholder, account, password, ...formInput }) => {
+const FormInput = ({ placeholder, account, password, login, ...formInput }) => {
   return (
     <>
       <InputGroup>
@@ -22,6 +22,13 @@ const FormInput = ({ placeholder, account, password, ...formInput }) => {
           placeholder={placeholder}
           type={password ? "password" : "text"}
           {...formInput}
+          onKeyDown={e => {
+            if (e.key === "Enter") {
+              e.preventDefault()
+              e.stopPropagation()
+              login()
+            }
+          }}
         />
       </InputGroup>
     </>
@@ -33,7 +40,8 @@ FormInput.propTypes = {
   account: PropTypes.bool,
   password: PropTypes.bool,
   value: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired
+  onChange: PropTypes.func.isRequired,
+  login: PropTypes.func.isRequired
 }
 
 export default FormInput
