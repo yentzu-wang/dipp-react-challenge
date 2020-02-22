@@ -1,18 +1,12 @@
 import React from "react"
 import { Input, InputGroupAddon, InputGroupText, InputGroup } from "reactstrap"
 import classnames from "classnames"
+import PropTypes from "prop-types"
 
-const FormInput = ({
-  id,
-  placeholder,
-  account,
-  password,
-  appendButton,
-  ...formInput
-}) => {
+const FormInput = ({ placeholder, account, password, ...formInput }) => {
   return (
     <>
-      <InputGroup id={id}>
+      <InputGroup>
         <InputGroupAddon addonType="prepend" className="d-flex">
           <InputGroupText>
             <i
@@ -29,10 +23,17 @@ const FormInput = ({
           type={password ? "password" : "text"}
           {...formInput}
         />
-        {appendButton}
       </InputGroup>
     </>
   )
+}
+
+FormInput.propTypes = {
+  placeholder: PropTypes.string.isRequired,
+  account: PropTypes.bool,
+  password: PropTypes.bool,
+  value: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired
 }
 
 export default FormInput
