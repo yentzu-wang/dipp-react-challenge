@@ -11,11 +11,12 @@ import {
 } from "reactstrap"
 import { useQuery, useMutation } from "@apollo/react-hooks"
 import { gql } from "apollo-boost"
+import WeatherDisplay from "./WeatherDisplay"
 
 const Setting = () => {
   const user = localStorage.getItem("currentUser")
   const { data: cityData } = useQuery(Setting.query.cities)
-  const { data: usersData } = useQuery(Setting.query.users, {
+  const { data: usersData } = useQuery(Setting.query.user, {
     variables: {
       account: user
     },
@@ -24,7 +25,13 @@ const Setting = () => {
   const [updateUserCity] = useMutation(Setting.mutation.UpdateUserCity, {
     refetchQueries: [
       {
-        query: Setting.query.users,
+        query: Setting.query.user,
+        variables: {
+          account: user
+        }
+      },
+      {
+        query: WeatherDisplay.query.user,
         variables: {
           account: user
         }
@@ -68,8 +75,8 @@ const Setting = () => {
 }
 
 Setting.query = {
-  users: gql`
-    query Users($account: String!) {
+  user: gql`
+    query User($account: String!) {
       user(account: $account)
         @rest(type: "User", path: "users/{args.account}", endpoint: "v2") {
         city

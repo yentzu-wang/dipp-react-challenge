@@ -11,6 +11,7 @@ import {
 } from "reactstrap"
 import { useQuery, useMutation } from "@apollo/react-hooks"
 import { gql } from "apollo-boost"
+import WeatherDisplay from "./WeatherDisplay"
 
 const AdminSetting = () => {
   const [user, setUser] = useState("admin")
@@ -22,6 +23,12 @@ const AdminSetting = () => {
     refetchQueries: [
       {
         query: AdminSetting.query.users,
+        variables: {
+          account: user
+        }
+      },
+      {
+        query: WeatherDisplay.query.user,
         variables: {
           account: user
         }
