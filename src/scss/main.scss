@@ -1,1 +1,14 @@
-@import "components/app"
+// abstracts
+@import "abstracts/variables";
+
+// base
+@import "base/base";
+@import "base/typography";
+
+// components
+@import "components/home";
+@import "components/weather";
+@import "components/image-ad";
+
+// layout
+@import "layout/navigation";
