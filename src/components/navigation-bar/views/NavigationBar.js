@@ -1,22 +1,40 @@
 import React from "react"
-import { Link } from "react-router-dom"
+import { Link, useLocation } from "react-router-dom"
+import classnames from "classnames"
 
 const NavigationBar = () => {
+  const location = useLocation()
+
   return (
     <div className="navigation">
       <ul>
         <li>
-          <Link className="navigation__link" to="/">
+          <Link
+            className={classnames("navigation__link", {
+              "navigation__link--active": location.pathname === "/"
+            })}
+            to="/"
+          >
             Home
           </Link>
         </li>
         <li>
-          <Link className="navigation__link" to="/weather">
+          <Link
+            className={classnames("navigation__link", {
+              "navigation__link--active": location.pathname === "/weather"
+            })}
+            to="/weather"
+          >
             Weather
           </Link>
         </li>
         <li>
-          <Link className="navigation__link" to="/image-ad">
+          <Link
+            className={classnames("navigation__link", {
+              "navigation__link--active": location.pathname === "/image-ad"
+            })}
+            to="/image-ad"
+          >
             Image Ad
           </Link>
         </li>
