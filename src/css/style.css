@@ -12,6 +12,10 @@ body {
   box-sizing: border-box;
   padding: 3rem; }
 
+::selection {
+  background-color: #55c57a;
+  color: #fff; }
+
 body {
   font-family: "Lato", sans-serif;
   font-weight: 400;
@@ -19,4 +23,23 @@ body {
   color: #777; }
 
 .navigation {
-  font-size: 1.5rem; }
+  display: flex;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 45px;
+  padding: 0 2.5rem;
+  font-size: 1.5rem;
+  background-color: rgba(41, 152, 255, 0.3);
+  transition: all 1s; }
+  .navigation:hover {
+    background-color: rgba(41, 152, 255, 0.65);
+    transition: all 1s; }
+  .navigation__link {
+    color: inherit;
+    text-decoration: inherit; }
+  .navigation li {
+    display: inline;
+    margin: 0 1rem; }
