@@ -1,4 +1,5 @@
 // abstracts
+@import "abstracts/mixins";
 @import "abstracts/variables";
 
 // base
@@ -7,6 +8,7 @@
 @import "base/typography";
 
 // components
+@import "components/general-alert";
 @import "components/home";
 @import "components/image-ad";
 @import "components/login";

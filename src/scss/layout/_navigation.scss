@@ -10,9 +10,21 @@
   font-size: 1.5rem;
   background-color: rgba($color-tertiary-dark, 0.55);
   transition: all 0.75s;
-  z-index: 9999;
+  z-index: 1000;
   color: $color-white;
 
+  &__logout {
+    flex: 1;
+    text-align: right;
+    cursor: pointer;
+    user-select: none;
+    transition: all .2s;
+
+    &:hover {
+      color: $color-primary-light;
+      transition: all .2s;
+    }
+  }
 
   &__link {
     color: inherit;

@@ -4,7 +4,7 @@ import { ApolloClient } from "apollo-client"
 import { InMemoryCache } from "apollo-cache-inmemory"
 import { RestLink } from "apollo-link-rest"
 import { ApolloProvider } from "react-apollo"
-import uri from "./uri"
+import endpoints from "./endpoints"
 import NavigationBar from "./components/navigation-bar"
 import Home from "./components/home"
 import Weather from "./modules/weather"
@@ -13,7 +13,7 @@ import ImageAd from "./modules/image-ad"
 import "bootstrap/dist/css/bootstrap.min.css"
 import "./css/style.min.css"
 
-const restLink = new RestLink({ uri })
+const restLink = new RestLink({ endpoints })
 
 const client = new ApolloClient({
   link: restLink,
