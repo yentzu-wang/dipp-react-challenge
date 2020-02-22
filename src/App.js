@@ -1,5 +1,5 @@
 import React from "react"
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom"
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 import { ApolloClient } from "apollo-client"
 import { InMemoryCache } from "apollo-cache-inmemory"
 import { RestLink } from "apollo-link-rest"
@@ -8,6 +8,7 @@ import uri from "./uri"
 import Home from "./components/home"
 import Weather from "./components/weather"
 import ImageAd from "./components/image-ad"
+import NavigationBar from "./components/navigation-bar"
 
 import "./css/style.min.css"
 
@@ -22,19 +23,8 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <div>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/weather">Weather</Link>
-            </li>
-            <li>
-              <Link to="/image-ad">Image Ad</Link>
-            </li>
-          </ul>
-
+        <>
+          <NavigationBar />
           <hr />
 
           <Switch>
@@ -48,7 +38,7 @@ function App() {
               <ImageAd />
             </Route>
           </Switch>
-        </div>
+        </>
       </Router>
     </ApolloProvider>
   )
