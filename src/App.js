@@ -5,10 +5,10 @@ import { InMemoryCache } from "apollo-cache-inmemory"
 import { RestLink } from "apollo-link-rest"
 import { ApolloProvider } from "react-apollo"
 import uri from "./uri"
-import Home from "./components/home"
-import Weather from "./components/weather"
-import ImageAd from "./components/image-ad"
 import NavigationBar from "./components/navigation-bar"
+import Home from "./components/home"
+import Weather from "./modules/weather"
+import ImageAd from "./modules/image-ad"
 
 import "./css/style.min.css"
 
@@ -23,21 +23,18 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <>
-          <NavigationBar />
-
-          <Switch>
-            <Route exact path="/">
-              <Home />
-            </Route>
-            <Route path="/weather">
-              <Weather />
-            </Route>
-            <Route path="/image-ad">
-              <ImageAd />
-            </Route>
-          </Switch>
-        </>
+        <NavigationBar />
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route path="/weather">
+            <Weather />
+          </Route>
+          <Route path="/image-ad">
+            <ImageAd />
+          </Route>
+        </Switch>
       </Router>
     </ApolloProvider>
   )

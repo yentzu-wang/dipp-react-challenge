@@ -2,8 +2,8 @@ import React from "react"
 import { useQuery } from "@apollo/react-hooks"
 import { gql } from "apollo-boost"
 
-const Weather = () => {
-  const { data } = useQuery(Weather.query.weather, {
+const WeatherContainer = () => {
+  const { data } = useQuery(WeatherContainer.query.weather, {
     variables: {
       city: "taipei",
       country: "tw"
@@ -14,7 +14,7 @@ const Weather = () => {
   return <div>Weather</div>
 }
 
-Weather.query = {
+WeatherContainer.query = {
   weather: gql`
     query Weather($city: String!, $country: String!) {
       weather(city: $city, country: $country)
@@ -36,4 +36,4 @@ Weather.query = {
   `
 }
 
-export default Weather
+export default WeatherContainer
