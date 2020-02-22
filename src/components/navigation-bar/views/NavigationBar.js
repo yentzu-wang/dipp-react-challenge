@@ -6,13 +6,19 @@ const NavigationBar = () => {
     <div className="navigation">
       <ul>
         <li>
-          <Link to="/">Home</Link>
+          <Link className="navigation__link" to="/">
+            Home
+          </Link>
         </li>
         <li>
-          <Link to="/weather">Weather</Link>
+          <Link className="navigation__link" to="/weather">
+            Weather
+          </Link>
         </li>
         <li>
-          <Link to="/image-ad">Image Ad</Link>
+          <Link className="navigation__link" to="/image-ad">
+            Image Ad
+          </Link>
         </li>
       </ul>
     </div>
