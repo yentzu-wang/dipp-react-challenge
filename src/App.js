@@ -10,6 +10,7 @@ import Home from "./components/home"
 import Weather from "./modules/weather"
 import ImageAd from "./modules/image-ad"
 
+import "bootstrap/dist/css/bootstrap.min.css"
 import "./css/style.min.css"
 
 const restLink = new RestLink({ uri })
