@@ -21,7 +21,7 @@ const NavigationBar = () => {
         <li>
           <Link
             className={classnames("navigation__link", {
-              "navigation__link--active": location.pathname === "/weather"
+              "navigation__link--active": location.pathname.includes("/weather")
             })}
             to="/weather"
           >
@@ -31,7 +31,9 @@ const NavigationBar = () => {
         <li>
           <Link
             className={classnames("navigation__link", {
-              "navigation__link--active": location.pathname === "/image-ad"
+              "navigation__link--active": location.pathname.includes(
+                "/image-ad"
+              )
             })}
             to="/image-ad"
           >

@@ -1,17 +1,30 @@
 import React from "react"
+import { Switch, Route } from "react-router-dom"
 import { useQuery } from "@apollo/react-hooks"
 import { gql } from "apollo-boost"
+import Login from "../../login"
 
 const WeatherContainer = () => {
-  const { data } = useQuery(WeatherContainer.query.weather, {
-    variables: {
-      city: "taipei",
-      country: "tw"
-    }
-  })
-  console.log(data)
+  // const { data } = useQuery(WeatherContainer.query.weather, {
+  //   variables: {
+  //     city: "taipei",
+  //     country: "tw"
+  //   }
+  // })
+  // console.log(data)
 
-  return <div>Weather</div>
+  return (
+    <div>
+      <Switch>
+        <Route exact path="/weather">
+          test
+        </Route>
+        <Route path="/weather/login">
+          <Login />
+        </Route>
+      </Switch>
+    </div>
+  )
 }
 
 WeatherContainer.query = {
