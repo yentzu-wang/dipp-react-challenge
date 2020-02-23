@@ -47,12 +47,11 @@ WeatherDisplay.query = {
           dt
           dt_txt
           main {
-            temp
-            feels_like
+            temp_min
+            temp_max
           }
           weather {
-            main
-            description
+            icon
           }
         }
       }
