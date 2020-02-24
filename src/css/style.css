@@ -206,6 +206,35 @@ body {
     min-width: 130px;
     margin-left: 1.6rem; }
 
+.forecast {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-column-gap: 15px;
+  width: 100%;
+  height: 150px; }
+  .forecast__weather {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer; }
+    .forecast__weather__day {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center; }
+    .forecast__weather__img {
+      flex: 2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      object-fit: contain; }
+    .forecast__weather__temp {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center; }
+
 .navigation {
   display: flex;
   align-items: center;

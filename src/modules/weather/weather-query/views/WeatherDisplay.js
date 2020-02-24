@@ -2,6 +2,9 @@ import React, { useEffect } from "react"
 import { Card, CardHeader, CardBody } from "reactstrap"
 import { useQuery, useLazyQuery } from "@apollo/react-hooks"
 import { gql } from "apollo-boost"
+import moment from "moment"
+import _ from "lodash"
+import WeatherBlock from "./WeatherBlock"
 
 const WeatherDisplay = () => {
   const user = localStorage.getItem("currentUser")
@@ -20,12 +23,28 @@ const WeatherDisplay = () => {
 
   useWeatherData(weather, userData)
 
-  console.log(weatherData)
+  console.log(weatherData?.weather?.list)
+
+  const filteredData = _.uniqBy(
+    weatherData?.weather?.list?.map(weather => {
+      return {
+        ...weather,
+        parsedDt: moment(weather.dt_txt).format("YYYY/MM/DD")
+      }
+    }),
+    "parsedDt"
+  )
 
   return (
     <Card>
       <CardHeader>Weather Forecast</CardHeader>
-      <CardBody></CardBody>
+      <CardBody>
+        <div className="forecast">
+          {filteredData?.map((weather, index) => (
+            <WeatherBlock key={index} weather={weather} />
+          ))}
+        </div>
+      </CardBody>
     </Card>
   )
 }
