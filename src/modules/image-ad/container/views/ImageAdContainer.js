@@ -6,9 +6,8 @@ import Slogan from "./Slogan"
 import data from "../../../../metadata.json"
 
 const ImageAdContainer = () => {
-  console.log(data)
-
   const adRef = useRef()
+
   return (
     <div className="ad" ref={adRef}>
       <div
@@ -26,8 +25,6 @@ const ImageAdContainer = () => {
       <button
         onClick={() => {
           const node = adRef?.current
-
-          console.log(node)
 
           domtoimage.toBlob(node).then(blob => {
             saveAs(blob, "my-node.png")
