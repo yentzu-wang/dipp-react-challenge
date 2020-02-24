@@ -1,0 +1,55 @@
+{
+  "users": [
+    {
+      "id": "admin",
+      "account": "admin",
+      "city": "new york,us"
+    },
+    {
+      "id": "user1",
+      "account": "user1",
+      "city": "new york,us"
+    },
+    {
+      "id": "user2",
+      "account": "user2",
+      "city": "los angeles,us"
+    }
+  ],
+  "cities": [
+    {
+      "id": "Taipei",
+      "name": "Taipei",
+      "value": "Taipei,TW"
+    },
+    {
+      "id": "Kaohsiung",
+      "name": "Kaohsiung",
+      "value": "kaohsiung,tw"
+    },
+    {
+      "id": "New York",
+      "name": "New York",
+      "value": "new york,us"
+    },
+    {
+      "id": "Los Angeles",
+      "name": "Los Angeles",
+      "value": "los angeles,us"
+    },
+    {
+      "id": "Tokyo",
+      "name": "Tokyo",
+      "value": "tokyo,jp"
+    },
+    {
+      "name": "Seoul",
+      "value": "seoul,kr"
+    },
+    {
+      "id": "Taichung",
+      "name": "Taichung",
+      "value": "Taichung,TW"
+    }
+  ]
+}

@@ -1,1 +1,20 @@
-.weather {}
+.weather {
+  margin-top: 45px;
+  padding: 20px 20px;
+  font-size: $default-font-size;
+
+  &__find-city {
+    display: flex;
+  }
+
+  select,
+  input,
+  button {
+    font-size: $default-font-size;
+  }
+
+  button {
+    min-width: 130px;
+    margin-left: $default-font-size;
+  }
+}

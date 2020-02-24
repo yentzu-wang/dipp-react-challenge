@@ -1,0 +1,5 @@
+.general-alert {
+  @include fixed-top;
+  z-index: 9999;
+  font-size: $default-font-size;
+}

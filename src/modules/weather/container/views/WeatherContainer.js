@@ -1,23 +1,16 @@
 import React from "react"
 import { Switch, Route } from "react-router-dom"
-import { useQuery } from "@apollo/react-hooks"
 import { gql } from "apollo-boost"
+import requireAuth from "./requireAuth"
 import Login from "../../login"
+import WeatherQuery from "../../weather-query"
 
 const WeatherContainer = () => {
-  // const { data } = useQuery(WeatherContainer.query.weather, {
-  //   variables: {
-  //     city: "taipei",
-  //     country: "tw"
-  //   }
-  // })
-  // console.log(data)
-
   return (
     <div>
       <Switch>
         <Route exact path="/weather">
-          test
+          <WeatherQuery />
         </Route>
         <Route path="/weather/login">
           <Login />
@@ -31,7 +24,7 @@ WeatherContainer.query = {
   weather: gql`
     query Weather($city: String!, $country: String!) {
       weather(city: $city, country: $country)
-        @rest(type: "test", path: "&q=city,country") {
+        @rest(type: "Weather", path: "&q=:city,:country", endpoint: "v1") {
         list {
           dt
           dt_txt
@@ -49,4 +42,4 @@ WeatherContainer.query = {
   `
 }
 
-export default WeatherContainer
+export default requireAuth(WeatherContainer)

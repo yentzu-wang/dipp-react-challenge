@@ -1,9 +1,10 @@
 import React from "react"
-import { Link, useLocation } from "react-router-dom"
+import { Link, useLocation, useHistory } from "react-router-dom"
 import classnames from "classnames"
 
 const NavigationBar = () => {
   const location = useLocation()
+  const history = useHistory()
 
   return (
     <div className="navigation">
@@ -41,6 +42,17 @@ const NavigationBar = () => {
           </Link>
         </li>
       </ul>
+      {localStorage.getItem("currentUser") && (
+        <div
+          className="navigation__logout"
+          onClick={() => {
+            localStorage.removeItem("currentUser")
+            history.push("/weather/login")
+          }}
+        >
+          Log out
+        </div>
+      )}
     </div>
   )
 }
