@@ -18,3 +18,38 @@
     margin-left: $default-font-size;
   }
 }
+
+.forecast {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-column-gap: 15px;
+  width: 100%;
+
+  &__weather {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    &--admin {
+      cursor: pointer;
+    }
+
+    &__day,
+    &__temp {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &__img {
+      flex: 2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      object-fit: contain;
+    }
+  }
+}
