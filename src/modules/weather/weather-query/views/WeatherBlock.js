@@ -1,8 +1,13 @@
 /* eslint-disable camelcase */
-import React from "react"
+import React, { useContext } from "react"
+import classnames from "classnames"
 import moment from "moment"
+import PropTypes from "prop-types"
+import WeatherContext from "../WeatherContext"
 
-const WeatherBlock = ({ weather }) => {
+const WeatherBlock = ({ weather, data }) => {
+  const { setHourlyData } = useContext(WeatherContext)
+
   function getDayString(date) {
     switch (moment(date).day()) {
       case 1:
@@ -25,7 +30,19 @@ const WeatherBlock = ({ weather }) => {
   }
 
   return (
-    <div className="forecast__weather">
+    <div
+      className={classnames("forecast__weather", {
+        "forecast__weather--admin":
+          localStorage.getItem("currentUser") === "admin"
+      })}
+      onClick={() => {
+        if (localStorage.getItem("currentUser") !== "admin") {
+          return
+        }
+
+        setHourlyData(data.filter(d => d.parsedDt === weather.parsedDt))
+      }}
+    >
       <div className="forecast__weather__day">
         {getDayString(weather.dt_txt)}
       </div>
@@ -37,6 +54,11 @@ const WeatherBlock = ({ weather }) => {
       <div className="forecast__weather__temp">{`${weather.main.temp_max}° ${weather.main.temp_min}°`}</div>
     </div>
   )
+}
+
+WeatherBlock.propTypes = {
+  weather: PropTypes.object.isRequired,
+  data: PropTypes.object.isRequired
 }
 
 export default WeatherBlock
