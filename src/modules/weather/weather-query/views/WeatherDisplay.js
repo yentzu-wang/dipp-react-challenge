@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useContext } from "react"
 import { Card, CardHeader, CardBody } from "reactstrap"
 import { useQuery, useLazyQuery } from "@apollo/react-hooks"
 import { gql } from "apollo-boost"
@@ -9,8 +9,9 @@ import HourlyDisplay from "./HourlyDisplay"
 import WeatherContext from "../WeatherContext"
 
 const WeatherDisplay = () => {
-  const [hourlyData, setHourlyData] = useState()
   const user = localStorage.getItem("currentUser")
+  const { hourlyData } = useContext(WeatherContext)
+
   const [weather, { data: weatherData }] = useLazyQuery(
     WeatherDisplay.query.weather,
     {
@@ -36,7 +37,7 @@ const WeatherDisplay = () => {
   const filteredData = _.uniqBy(data, "parsedDt")
 
   return (
-    <WeatherContext.Provider value={{ hourlyData, setHourlyData }}>
+    <>
       <Card>
         <CardHeader>Weather Forecast</CardHeader>
         <CardBody>
@@ -53,7 +54,7 @@ const WeatherDisplay = () => {
           <HourlyDisplay />
         </>
       )}
-    </WeatherContext.Provider>
+    </>
   )
 }
 

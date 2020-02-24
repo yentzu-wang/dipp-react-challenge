@@ -1,6 +1,5 @@
 /* eslint-disable camelcase */
 import React, { useContext } from "react"
-import classnames from "classnames"
 import moment from "moment"
 import PropTypes from "prop-types"
 import WeatherContext from "../WeatherContext"
@@ -31,15 +30,8 @@ const WeatherBlock = ({ weather, data }) => {
 
   return (
     <div
-      className={classnames("forecast__weather", {
-        "forecast__weather--admin":
-          localStorage.getItem("currentUser") === "admin"
-      })}
+      className="forecast__weather"
       onClick={() => {
-        if (localStorage.getItem("currentUser") !== "admin") {
-          return
-        }
-
         setHourlyData(data.filter(d => d.parsedDt === weather.parsedDt))
       }}
     >
