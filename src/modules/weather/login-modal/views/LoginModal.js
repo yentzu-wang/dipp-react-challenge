@@ -33,7 +33,7 @@ const LoginModal = ({ setShow }) => {
         }
       })
     } catch (err) {
-      console.log(err)
+      addAlert(err.message)
     }
   }
 
