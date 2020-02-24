@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useContext } from "react"
 import {
   Card,
   CardHeader,
@@ -12,9 +12,12 @@ import {
 import { useQuery, useMutation } from "@apollo/react-hooks"
 import { gql } from "apollo-boost"
 import WeatherDisplay from "./WeatherDisplay"
+import WeatherContext from "../WeatherContext"
 
 const Setting = () => {
   const user = localStorage.getItem("currentUser")
+  const { setHourlyData } = useContext(WeatherContext)
+
   const { data: cityData } = useQuery(Setting.query.cities)
   const { data: usersData } = useQuery(Setting.query.user, {
     variables: {
@@ -50,14 +53,15 @@ const Setting = () => {
               <Input
                 type="select"
                 name="city"
-                onChange={e =>
+                onChange={e => {
+                  setHourlyData(null)
                   updateUserCity({
                     variables: {
                       account: user,
                       city: e.target.value
                     }
                   })
-                }
+                }}
                 value={usersData?.user?.city || "taipei,tw"}
               >
                 {cityData?.cities?.map((city, index) => (

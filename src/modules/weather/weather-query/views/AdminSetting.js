@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useContext } from "react"
 import {
   Card,
   CardHeader,
@@ -13,10 +13,13 @@ import {
 import { useQuery, useLazyQuery, useMutation } from "@apollo/react-hooks"
 import { gql } from "apollo-boost"
 import WeatherDisplay from "./WeatherDisplay"
+import WeatherContext from "../WeatherContext"
 
 const AdminSetting = () => {
   const [user, setUser] = useState("admin")
   const [city, setCity] = useState("")
+  const { setHourlyData } = useContext(WeatherContext)
+
   const [getCities, { data: cityData }] = useLazyQuery(
     AdminSetting.query.cities,
     {
@@ -96,14 +99,15 @@ const AdminSetting = () => {
               <Input
                 type="select"
                 name="city"
-                onChange={e =>
+                onChange={e => {
+                  setHourlyData(null)
                   updateUserCity({
                     variables: {
                       account: user,
                       city: e.target.value
                     }
                   })
-                }
+                }}
                 value={
                   usersData?.users?.find(u => u.account === user)?.city || ""
                 }
